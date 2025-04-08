@@ -217,6 +217,7 @@ plot(TD3_filtre, main="TD filtered") #147 species in total
 
 setwd("~/Master/M2/Internship_M2/analyse/frogs/figures/maps_V3")
 writeRaster(TD3_filtre, "richness_hylids_complete_0_083_V3.tif", filetype = "GTiff")  ###in tif format
+#writeRaster(TD3_filtre, "richness_hylids_all.grd", filetype = "RRASTER")  ###in tif format
 
 par(mfrow=c(1,1)) #to compare
 plot(TD3, main="Non-filtered")
