@@ -36,6 +36,8 @@ all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_random_1_200.csv") #r
 all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_random_10_200.csv") #random
 all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_pca_based_200.csv") #pca 
 all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_cluster_random_200.csv") #wihtin clusters random
+all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_cluster_5_200.csv") #cluster 3, 5, 6
+all_metrics<-read_csv("clean/results/REV_obs_results_ANGIO_pca_90_200.csv") #pca 40, 90
 
 ###Create all metric rasters for observed
 pd_ras<-r
@@ -60,75 +62,49 @@ plot(raoq_ras)
 plot(fdr_ras)
 plot(mpd_ras)
 
-setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/random_clusters") #eco_based_200 / randomX / random_clusters / PCA_selection
+setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/pca90") #eco_based_200 / randomX / random_clusters / PCA_selection
 #randomX = randomX at 200 filtering
 #writeRaster(x=pd_ras,filename="PD_eco_based.tif",filetype="GTiff", overwrite=TRUE) #PD_all_trees.tif
-writeRaster(pd_ras,filename="PD_clusters.grd",filetype="RRASTER", overwrite=TRUE) #PD_all_trees.tif
-writeRaster(mpd_ras,"MPD_clusters.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(SR_ras,"SR_clusters.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(raoq_ras,"RaoQ_clusters.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(fdr_ras,"fdr_clusters.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(fd_ras,"fd_clusters.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(pd_ras,filename="PD_pca90.grd",filetype="RRASTER", overwrite=TRUE) #PD_all_trees.tif
+writeRaster(mpd_ras,"MPD_pca90.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(SR_ras,"SR_pca90.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(raoq_ras,"RaoQ_pca90.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(fdr_ras,"fdr_pca90.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(fd_ras,"fd_pca90.grd",filetype="RRASTER", overwrite=TRUE) #
 
 ### More than 8 species by pixels - TEST ###
 combined_ras <- c(SR_ras, raoq_ras, fdr_ras, fd_ras) #, pd_ras, mpd_ras
 names(combined_ras) <- c("Species_Richness", "RaoQ", "FDR", "FD") #, "PD", "MPD"
 plot(combined_ras)
-combined_ras[SR_ras < 9] <- NA
+combined_ras[SR_ras < 4] <- NA
 plot(combined_ras) #compare to verify
 ####
 
 # Remplacer les pixels avec moins de 3 espèces par NA
 plot(raoq_ras)
-raoq_ras[SR_ras < 9] <- NA
+raoq_ras[SR_ras < 9] <- NA #for all comb with 8 traits
+raoq_ras[SR_ras < 4] <- NA # for rest of the comb (4 for cluster3, 6 and pca 40; 5 for cluster5 ; 18 ? for cluster pca90)
 #fdr_ras[SR_ras < 9] <- NA
 #fd_ras[SR_ras < 9] <- NA 
 plot(raoq_ras)#compare to verify
 
 ####TEST
-setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/test") #eco_based_200 / randomX / random_clusters / PCA_selection
-writeRaster(combined_ras,"combined_test.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(raoq_ras,"raoq_test.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(fdr_ras,"fdr_test.grd",filetype="RRASTER", overwrite=TRUE) #
+#setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/test") #eco_based_200 / randomX / random_clusters / PCA_selection
+#writeRaster(combined_ras,"combined_test.grd",filetype="RRASTER", overwrite=TRUE) #
+#writeRaster(raoq_ras,"raoq_test.grd",filetype="RRASTER", overwrite=TRUE) #
+#writeRaster(fdr_ras,"fdr_test.grd",filetype="RRASTER", overwrite=TRUE) #
 
 ##write again the rasters for RaoQ
-setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/PCA_selection") #eco_based_200 / randomX / random_clusters / PCA_selection
+#setwd("~/Master/M2/Internship_M2/analyse/trees/figures/maps/PCA_selection") #eco_based_200 / randomX / random_clusters / PCA_selection
 writeRaster(raoq_ras,"RaoQ_pca_9sp.grd",filetype="RRASTER", overwrite=TRUE) #
 #RaoQ_clusters.grd
 #_9sp
 
+writeRaster(raoq_ras,"RaoQ_pca90_4sp.grd",filetype="RRASTER", overwrite=TRUE) #
+
+
 ##### OLD SCRIPT ######################
-###########angiosperms only###############
-all_metrics<-read.csv("REV_obs_results_ANGIO_200.csv") #Observed Angio only
-
-
-###Create all metric rasters for observed
-pd_ras<-r
-mpd_ras<-r
-raoq_ras<-r
-SR_ras<-r
-fdr_ras<-r
-fd_ras<-r
-
-
-pd_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$pd
-mpd_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$mpd
-raoq_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$raoq
-SR_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$n
-fdr_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$fdr
-fd_ras[as.numeric(all_metrics$grid_id)]<-all_metrics$fd
-
-writeRaster(pd_ras,"PD_angio_trees.tif",format="GTiff")
-writeRaster(mpd_ras,"MPD_angio_trees.tif",format="GTiff")
-writeRaster(SR_ras,"SR_angio_trees.tif",format="GTiff")
-writeRaster(raoq_ras,"RaoQ_angio_trees.tif",format="GTiff")
-writeRaster(fdr_ras,"fdr_angio_trees.tif",format="GTiff")
-writeRaster(fd_ras,"fd_angio_trees.tif",format="GTiff")
-
-
-############################
 ######BOOTSTRAP DATA (mean and CV)##########
-###########################
 all_metrics<-read.csv("REV_downsample_gatti_200.csv") 
 
 pd_rasB<-r
