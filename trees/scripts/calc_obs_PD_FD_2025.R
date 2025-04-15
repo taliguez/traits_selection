@@ -49,11 +49,13 @@ dt_mat <- read_csv("clean/results/datasets_traits_comm/eco_based_scaled_200.csv"
 dt_mat <- read_csv("clean/results/datasets_traits_comm/random_based_200_10.csv")  #Trait matrix -> random X
 dt_mat <- read_csv("clean/results/datasets_traits_comm/pca_based_200.csv")  #Trait matrix -> pca based (8 first PC)
 dt_mat <- read_csv("clean/results/datasets_traits_comm/cluster_random_200.csv")  #Trait matrix -> pca based (8 first PC)
+dt_mat <- read_csv("clean/results/datasets_traits_comm/pca_based_90_200.csv")  #40, 90
+dt_mat <- read_csv("clean/results/datasets_traits_comm/cluster_6_200.csv")  #3, 5, 6
 
-save_suffix <- "cluster_random" #_200 #change depending on the dataset used to not overwrite
+save_suffix <- "pca_90" #_200 #change depending on the dataset used to not overwrite
 #eco_based
-#pca_based
-#cluster_random
+#pca_based (/ pca_40 / pca_90)
+#cluster_random (cluster_X)
 
 #Only analysing Angiosperms
 fit_seq <- c(2)  
