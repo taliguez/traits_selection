@@ -19,7 +19,7 @@ values(r)<-NA
 
 ###### Add indices in maps ########## 
 setwd("~/Master/M2/Internship_M2/analyse/frogs/datas/cleaned/results")
-all_metrics<-read_csv("REV_obs_results_Frogs_comb_10.csv") #change with the right file 1 to 10
+all_metrics<-read_csv("REV_obs_results_Frogs_comb_6.csv") #change with the right file 1 to 10
 
 ###Create all metric rasters for observed
 pd_ras<-r
@@ -64,6 +64,6 @@ setwd("~/Master/M2/Internship_M2/analyse/frogs/figures/maps_homogeneization")
 writeRaster(pd_ras,filename="comb10/PD_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
 writeRaster(mpd_ras,"comb10/MPD_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
 writeRaster(SR_ras,"comb10/SR_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
-writeRaster(raoq_ras,"comb10/RaoQ_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
+writeRaster(raoq_ras,"comb6/RaoQ_comb6_V2.grd",filetype="RRASTER", overwrite=TRUE) #
 writeRaster(fdr_ras,"comb10/fdr_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
 writeRaster(fd_ras,"comb10/fd_comb10.grd",filetype="RRASTER", overwrite=TRUE) #
