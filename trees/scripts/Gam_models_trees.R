@@ -1,4 +1,4 @@
-####Gam models for trees
+####Gam models for trees, making the plots
 #Modified by Tali Guez 2025
 #Trees
 
