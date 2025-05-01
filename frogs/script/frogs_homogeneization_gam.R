@@ -25,7 +25,7 @@ pd<-rast("comb1/PD_comb1.grd")
 MPD<-rast("comb1/MPD_comb1.grd")
 
 ##### Loading data + create models #####
-##### TRY with Random X - FRich #####
+##### Random X - FRich~SR #####
 #Calcul AIC, choose best model 
 best_models<-list() #list to store the results
 
@@ -114,7 +114,7 @@ for (i in 1:10) {
 # model_list$model_gam_comb1 #stocke les modèles gam
 # pred_data_list$pred_data_comb1 #stocke les prédictions
 
-##### TRY with Random X - Fdiv~SR #####
+##### Random X - Fdiv~SR #####
 #Calcul AIC, choose best model 
 best_models<-list() #list to store the results
 
@@ -203,7 +203,7 @@ for (i in 1:10) {
 # model_list$model_gam_comb_raoq1 #stocke les modèles gam
 # pred_data_list$pred_data_comb_raoq1 #stocke les prédictions
 
-##### TRY with Random X - Fdiv~Frich #####
+##### Random X - Fdiv~Frich #####
 #Calcul AIC, choose best model 
 best_models<-list() #list to store the results
 
@@ -295,235 +295,203 @@ for (i in 1:10) {
 
 ##### Making the plots - Frich - with all #####
 g <- ggplot()+
-  #eco_based
-  #geom_point(data=stackRas, aes(x=sr, y=Frich, color="Ecologically based"), alpha=0.01) +
-  #geom_smooth(data=pred_data, aes(x=sr, y=fit, color="Ecologically based")) +
-  
   #comb 1
-  geom_point(data=stackRas_list$stackRas_comb1, aes(x=sr, y=Frich, color="comb 1"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb1, aes(x=sr, y=fit, color="comb 1")) +
+  geom_point(data=stackRas_list$stackRas_comb1, aes(x=sr, y=Frich, color="Ecologically based"), alpha=0.008) +
+  geom_smooth(data=pred_data_list$pred_data_comb1, aes(x=sr, y=fit, color="Ecologically based")) +
   
   #comb 2
-  geom_point(data=stackRas_list$stackRas_comb2, aes(x=sr, y=Frich, color="comb 2"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb2, aes(x=sr, y=fit, color="comb 2")) +
+  geom_point(data=stackRas_list$stackRas_comb2, aes(x=sr, y=Frich, color="Combination 2"), alpha=0.008) +
+  geom_smooth(data=pred_data_list$pred_data_comb2, aes(x=sr, y=fit, color="Combination 2")) +
   
   #comb 3
-  geom_point(data=stackRas_list$stackRas_comb3, aes(x=sr, y=Frich, color="comb 3"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb3, aes(x=sr, y=fit, color="comb 3")) +
+  geom_point(data=stackRas_list$stackRas_comb3, aes(x=sr, y=Frich, color="Combination 3"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb3, aes(x=sr, y=fit, color="Combination 3")) +
   
   #comb 4
-  geom_point(data=stackRas_list$stackRas_comb4, aes(x=sr, y=Frich, color="comb 4"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb4, aes(x=sr, y=fit, color="comb 4")) +
+  geom_point(data=stackRas_list$stackRas_comb4, aes(x=sr, y=Frich, color="Combination 4"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb4, aes(x=sr, y=fit, color="Combination 4")) +
   
   #comb 5
-  geom_point(data=stackRas_list$stackRas_comb5, aes(x=sr, y=Frich, color="comb 5"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb5, aes(x=sr, y=fit, color="comb 5")) +
+  geom_point(data=stackRas_list$stackRas_comb5, aes(x=sr, y=Frich, color="Combination 5"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb5, aes(x=sr, y=fit, color="Combination 5")) +
   
   #comb 6
-  geom_point(data=stackRas_list$stackRas_comb6, aes(x=sr, y=Frich, color="comb 6"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb6, aes(x=sr, y=fit, color="comb 6")) +
+  geom_point(data=stackRas_list$stackRas_comb6, aes(x=sr, y=Frich, color="Combination 6"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb6, aes(x=sr, y=fit, color="Combination 6")) +
   
   #comb 7
-  geom_point(data=stackRas_list$stackRas_comb7, aes(x=sr, y=Frich, color="comb 7"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb7, aes(x=sr, y=fit, color="comb 7")) +
+  geom_point(data=stackRas_list$stackRas_comb7, aes(x=sr, y=Frich, color="Combination 7"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb7, aes(x=sr, y=fit, color="Combination 7")) +
   
   #comb 8
-  geom_point(data=stackRas_list$stackRas_comb8, aes(x=sr, y=Frich, color="comb 8"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb8, aes(x=sr, y=fit, color="comb 8")) +
+  geom_point(data=stackRas_list$stackRas_comb8, aes(x=sr, y=Frich, color="Combination 8"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb8, aes(x=sr, y=fit, color="Combination 8")) +
   
   #comb 9
-  geom_point(data=stackRas_list$stackRas_comb9, aes(x=sr, y=Frich, color="comb 9"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb9, aes(x=sr, y=fit, color="comb 9")) +
+  geom_point(data=stackRas_list$stackRas_comb9, aes(x=sr, y=Frich, color="Combination 9"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb9, aes(x=sr, y=fit, color="Combination 9")) +
   
   #comb 10
-  geom_point(data=stackRas_list$stackRas_comb10, aes(x=sr, y=Frich, color="comb 10"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb10, aes(x=sr, y=fit, color="comb 10")) +
-  
-  #within_clusters
-  #geom_point(data=stackRas_clusters, aes(x=sr, y=Frich, color="Random within clusters"), alpha=0.01) +
-  #geom_smooth(data=pred_data_clusters, aes(x=sr, y=fit, color="Random within clusters")) +
-  
-  #PCA
-  #geom_point(data=stackRas_PCA, aes(x=sr, y=Frich, color="PCA"), alpha=0.01) +
-  #geom_smooth(data=pred_data_PCA , aes(x=sr, y=fit, color="PCA")) +
+  geom_point(data=stackRas_list$stackRas_comb10, aes(x=sr, y=Frich, color="Combination 10"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb10, aes(x=sr, y=fit, color="Combination 10")) +
   
   scale_y_continuous(name="Functional Richness") +
   scale_color_manual(
-    values = c(#"Ecologically based" = "darkgreen", 
-               "comb 1"="darkgreen", 
-               "comb 2"="purple", 
-               "comb 3"="pink",
-               "comb 4"="hotpink",
-               "comb 5"="cyan",
-               "comb 6"="lightskyblue",
-               "comb 7"="red",
-               "comb 8"="tomato3",
-               "comb 9"="darkgoldenrod2",
-               "comb 10"="royalblue"#, 
-               #"PCA"="springgreen2",
-               ),#"Random within clusters"="olivedrab2"
-    name = "Dataset") +
-  coord_cartesian() +
+    values = c("Ecologically based"="darkgreen", 
+               "Combination 2"="red", 
+               "Combination 3"="green",
+               "Combination 4"="blue",
+               "Combination 5"="pink",
+               "Combination 6"="brown",
+               "Combination 7"="black",
+               "Combination 8"="royalblue1",
+               "Combination 9"="orange",
+               "Combination 10"="yellow"),
+    name = "Dataset") +  coord_cartesian(expand=FALSE, xlim=c(0,NA), ylim=c(NA,2)) + #coord_cartesian(expand=FALSE) + #, xlim=c(0,NA) + #, ylim=c(1,NA)
   theme_bw() +
-  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom") + #, legend.key=element_rect(fill="white", colour="black")
+  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom",
+        axis.line=element_line(size=1.5, linewidth ="solid"), axis.text=element_text(color="black",size=15.3),
+        axis.ticks=element_line(size=1.5), axis.ticks.length = unit(.15, "cm"),
+        legend.key=element_rect(fill="transparent", colour="white"), legend.box.background = element_rect(fill = "transparent", colour = NA)
+        , plot.margin=margin(r=15, t=10))+ #, legend.key=element_rect(fill="white", colour="black") 
+  guides(color = guide_legend(override.aes = list(fill = "transparent")))+
   labs(x="Taxonomic diversity SR")
 
 g
 
 ##### Making the plots - Fdiv~SR - with all #####
 g <- ggplot()+
-  #eco_based
-  #geom_point(data=stackRas, aes(x=sr, y=Fdiv, color="Ecologically based"), alpha=0.01) +
-  #geom_smooth(data=pred_data_raoq, aes(x=sr, y=fit, color="Ecologically based")) +
-  
   #comb 1
-  geom_point(data=stackRas_list$stackRas_comb_raoq1, aes(x=sr, y=Fdiv, color="comb 1"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq1, aes(x=sr, y=fit, color="comb 1")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq1, aes(x=sr, y=Fdiv, color="Ecologically based"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq1, aes(x=sr, y=fit, color="Ecologically based")) +
   
   #comb 2
-  geom_point(data=stackRas_list$stackRas_comb_raoq2, aes(x=sr, y=Fdiv, color="comb 2"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq2, aes(x=sr, y=fit, color="comb 2")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq2, aes(x=sr, y=Fdiv, color="Combination 2"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq2, aes(x=sr, y=fit, color="Combination 2")) +
   
   #comb 3
-  geom_point(data=stackRas_list$stackRas_comb_raoq3, aes(x=sr, y=Fdiv, color="comb 3"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq3, aes(x=sr, y=fit, color="comb 3")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq3, aes(x=sr, y=Fdiv, color="Combination 3"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq3, aes(x=sr, y=fit, color="Combination 3")) +
   
   #comb 4
-  geom_point(data=stackRas_list$stackRas_comb_raoq4, aes(x=sr, y=Fdiv, color="comb 4"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq4, aes(x=sr, y=fit, color="comb 4")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq4, aes(x=sr, y=Fdiv, color="Combination 4"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq4, aes(x=sr, y=fit, color="Combination 4")) +
   
   #comb 5
-  geom_point(data=stackRas_list$stackRas_comb_raoq5, aes(x=sr, y=Fdiv, color="comb 5"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq5, aes(x=sr, y=fit, color="comb 5")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq5, aes(x=sr, y=Fdiv, color="Combination 5"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq5, aes(x=sr, y=fit, color="Combination 5")) +
   
   #comb 6
-  geom_point(data=stackRas_list$stackRas_comb_raoq6, aes(x=sr, y=Fdiv, color="comb 6"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq6, aes(x=sr, y=fit, color="comb 6")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq6, aes(x=sr, y=Fdiv, color="Combination 6"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq6, aes(x=sr, y=fit, color="Combination 6")) +
   
   #comb 7
-  geom_point(data=stackRas_list$stackRas_comb_raoq7, aes(x=sr, y=Fdiv, color="comb 7"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq7, aes(x=sr, y=fit, color="comb 7")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq7, aes(x=sr, y=Fdiv, color="Combination 7"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq7, aes(x=sr, y=fit, color="Combination 7")) +
   
   #comb 8
-  geom_point(data=stackRas_list$stackRas_comb_raoq8, aes(x=sr, y=Fdiv, color="comb 8"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq8, aes(x=sr, y=fit, color="comb 8")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq8, aes(x=sr, y=Fdiv, color="Combination 8"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq8, aes(x=sr, y=fit, color="Combination 8")) +
   
   #comb 9
-  geom_point(data=stackRas_list$stackRas_comb_raoq9, aes(x=sr, y=Fdiv, color="comb 9"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq9, aes(x=sr, y=fit, color="comb 9")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq9, aes(x=sr, y=Fdiv, color="Combination 9"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq9, aes(x=sr, y=fit, color="Combination 9")) +
   
   #comb 10
-  geom_point(data=stackRas_list$stackRas_comb_raoq10, aes(x=sr, y=Fdiv, color="comb 10"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq10, aes(x=sr, y=fit, color="comb 10")) +
-  
-  #within_clusters
-  #geom_point(data=stackRas_clusters, aes(x=sr, y=Fdiv, color="Random within clusters"), alpha=0.01) +
-  #geom_smooth(data=pred_data_clusters_raoq, aes(x=sr, y=fit, color="Random within clusters")) +
-  
-  #PCA
-  #geom_point(data=stackRas_PCA, aes(x=sr, y=Fdiv, color="PCA"), alpha=0.01) +
-  #geom_smooth(data=pred_data_PCA_raoq , aes(x=sr, y=fit, color="PCA")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq10, aes(x=sr, y=Fdiv, color="Combination 10"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq10, aes(x=sr, y=fit, color="Combination 10")) +
   
   scale_y_continuous(name="Functional Dispersion (RaoQ)") +
   scale_color_manual(
-    values = c(#"Ecologically based" = "royalblue", 
-               "comb 1"="darkgreen", 
-               "comb 2"="purple", 
-               "comb 3"="pink",
-               "comb 4"="hotpink",
-               "comb 5"="cyan",
-               "comb 6"="lightskyblue",
-               "comb 7"="red",
-               "comb 8"="tomato3",
-               "comb 9"="darkgoldenrod2",
-               "comb 10"="blue"),#, 
-               #"PCA"="springgreen2",
-              # ), #"Random within clusters"="olivedrab2"
+    values = c("Ecologically based"="darkgreen", 
+               "Combination 2"="red", 
+               "Combination 3"="green",
+               "Combination 4"="blue",
+               "Combination 5"="pink",
+               "Combination 6"="brown",
+               "Combination 7"="black",
+               "Combination 8"="royalblue1",
+               "Combination 9"="orange",
+               "Combination 10"="yellow"),
     name = "Dataset") +
-  coord_cartesian() +
+  coord_cartesian(expand=FALSE, xlim=c(0,NA), ylim=c(0,20)) + #, ylim=c(0,30) #zoom1
   theme_bw() +
-  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom") + #, legend.key=element_rect(fill="white", colour="black")
+  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom",
+        axis.line=element_line(size=1.5, linewidth ="solid"), axis.text=element_text(color="black",size=15.3),
+        axis.ticks=element_line(size=1.5), axis.ticks.length = unit(.15, "cm"),
+        legend.key=element_rect(fill="transparent", colour="white"), legend.box.background = element_rect(fill = "transparent", colour = NA)
+        , plot.margin=margin(r=15, t=10))+ 
+  guides(color = guide_legend(override.aes = list(fill = "transparent")))+
   labs(x="Taxonomic diversity SR")
 
 g
 
 ##### Making the plots - Fdiv~Frich - with all #####
 g <- ggplot()+
-  #eco_based
-  #geom_point(data=stackRas, aes(x=Frich, y=Fdiv, color="Ecologically based"), alpha=0.01) +
-  #geom_smooth(data=pred_data_raoq_fd, aes(x=Frich, y=fit, color="Ecologically based")) +
-  
   #comb 1
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd1, aes(x=Frich, y=Fdiv, color="comb 1"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd1, aes(x=Frich, y=fit, color="comb 1")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd1, aes(x=Frich, y=Fdiv, color="Ecologically based"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd1, aes(x=Frich, y=fit, color="Ecologically based")) +
   
   #comb 2
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd2, aes(x=Frich, y=Fdiv, color="comb 2"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd2, aes(x=Frich, y=fit, color="comb 2")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd2, aes(x=Frich, y=Fdiv, color="Combination 2"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd2, aes(x=Frich, y=fit, color="Combination 2")) +
   
   #comb 3
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd3, aes(x=Frich, y=Fdiv, color="comb 3"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd3, aes(x=Frich, y=fit, color="comb 3")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd3, aes(x=Frich, y=Fdiv, color="Combination 3"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd3, aes(x=Frich, y=fit, color="Combination 3")) +
   
   #comb 4
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd4, aes(x=Frich, y=Fdiv, color="comb 4"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd4, aes(x=Frich, y=fit, color="comb 4")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd4, aes(x=Frich, y=Fdiv, color="Combination 4"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd4, aes(x=Frich, y=fit, color="Combination 4")) +
   
   #comb 5
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd5, aes(x=Frich, y=Fdiv, color="comb 5"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd5, aes(x=Frich, y=fit, color="comb 5")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd5, aes(x=Frich, y=Fdiv, color="Combination 5"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd5, aes(x=Frich, y=fit, color="Combination 5")) +
   
   #comb 6
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd6, aes(x=Frich, y=Fdiv, color="comb 6"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd6, aes(x=Frich, y=fit, color="comb 6")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd6, aes(x=Frich, y=Fdiv, color="Combination 6"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd6, aes(x=Frich, y=fit, color="Combination 6")) +
   
   #comb 7
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd7, aes(x=Frich, y=Fdiv, color="comb 7"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd7, aes(x=Frich, y=fit, color="comb 7")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd7, aes(x=Frich, y=Fdiv, color="Combination 7"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd7, aes(x=Frich, y=fit, color="Combination 7")) +
   
   #comb 8
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd8, aes(x=Frich, y=Fdiv, color="comb 8"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd8, aes(x=Frich, y=fit, color="comb 8")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd8, aes(x=Frich, y=Fdiv, color="Combination 8"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd8, aes(x=Frich, y=fit, color="Combination 8")) +
   
   #comb 9
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd9, aes(x=Frich, y=Fdiv, color="comb 9"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd9, aes(x=Frich, y=fit, color="comb 9")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd9, aes(x=Frich, y=Fdiv, color="Combination 9"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd9, aes(x=Frich, y=fit, color="Combination 9")) +
   
   #comb 10
-  geom_point(data=stackRas_list$stackRas_comb_raoq_fd10, aes(x=Frich, y=Fdiv, color="comb 10"), alpha=0.01) +
-  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd10, aes(x=Frich, y=fit, color="comb 10")) +
-  
-  #within_clusters
-  #geom_point(data=stackRas_clusters, aes(x=Frich, y=Fdiv, color="Random within clusters"), alpha=0.01) +
-  #geom_smooth(data=pred_data_clusters_raoq_fd, aes(x=Frich, y=fit, color="Random within clusters")) +
-  
-  #PCA
-  #geom_point(data=stackRas_PCA, aes(x=Frich, y=Fdiv, color="PCA"), alpha=0.01) +
-  #geom_smooth(data=pred_data_PCA_raoq_fd , aes(x=Frich, y=fit, color="PCA")) +
+  geom_point(data=stackRas_list$stackRas_comb_raoq_fd10, aes(x=Frich, y=Fdiv, color="Combination 10"), alpha=0.006) +
+  geom_smooth(data=pred_data_list$pred_data_comb_raoq_fd10, aes(x=Frich, y=fit, color="Combination 10"), se=FALSE) +
   
   scale_y_continuous(name="Functional Dispersion (RaoQ)") +
   scale_color_manual(
-    values = c(#"Ecologically based" = "", 
-               "comb 1"="darkgreen", #royalblue
-               "comb 2"="purple", 
-               "comb 3"="pink",
-               "comb 4"="hotpink",
-               "comb 5"="cyan",
-               "comb 6"="lightskyblue",
-               "comb 7"="red",
-               "comb 8"="tomato3",
-               "comb 9"="darkgoldenrod2",
-               "comb 10"="blue"#, 
-               #"PCA"="springgreen2",
-              ), # "Random within clusters"="olivedrab2"
+    values = c("Ecologically based"="darkgreen", 
+               "Combination 2"="red", 
+               "Combination 3"="green",
+               "Combination 4"="blue",
+               "Combination 5"="pink",
+               "Combination 6"="brown",
+               "Combination 7"="black",
+               "Combination 8"="royalblue1",
+               "Combination 9"="orange",
+               "Combination 10"="yellow"),
     name = "Dataset") +
-  coord_cartesian() +
+  coord_cartesian(expand=FALSE, xlim=c(0,1.8), ylim=c(0,20))+ #expand=FALSE, xlim=c(0,NA), ylim=c(0,30) #zoom 1;ylim=c(0,20)#zoom2
   theme_bw() +
-  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom") + #, legend.key=element_rect(fill="white", colour="black")
+  theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(), legend.position="bottom",
+        axis.line=element_line(size=1.5, linewidth ="solid"), axis.text=element_text(color="black",size=15.3),
+        axis.ticks=element_line(size=1.5), axis.ticks.length = unit(.15, "cm"),
+        legend.key=element_rect(fill="transparent", colour="white"), legend.box.background = element_rect(fill = "transparent", colour = NA)
+        , plot.margin=margin(r=15, t=10))+ 
+  guides(color = guide_legend(override.aes = list(fill = "transparent")))+
   labs(x="Functional Richness (Frich - FDR)")
 
 g
-
 
 ##### Making the plots - Frich - test #####
 g <- ggplot()+
